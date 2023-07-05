@@ -2,10 +2,22 @@ import { useForm } from 'react-hook-form'
 import imgLogin from '../../assets/imgs/imgLogin.jpg'
 import imgLogo from '../../assets/imgs/logo.png'
 import '../../styles/Login.scss'
+import api from '../../api/api'
 export const Login = () => {
     const { register, handleSubmit } = useForm()
-    const onSubmitFormLogin = (data) => {
-        console.log(data)
+    const onSubmitFormLogin = async(data) => {
+        try {
+            const res= await api.post('/users/login',data)
+            console.log(res)
+            if(res.data.status){
+                console.log(res.data.token)
+                sessionStorage.setItem('token',res.data.token)
+                window.location.reload()
+            }
+        } catch (error) {
+            
+        }
+ 
     }
     return (
         <section className="Login">
