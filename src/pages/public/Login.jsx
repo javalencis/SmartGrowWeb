@@ -21,7 +21,7 @@ export const Login = () => {
                 setIsLogin(true)
                 if(res.data.user.role === 'admin'){
                     
-                    navigate('/admin')
+                    navigate('/admin/estado-guirnaldas')
                 }else{
                     navigate('/app')
                 }

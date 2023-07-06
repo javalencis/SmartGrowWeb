@@ -8,7 +8,7 @@ export const LayoutPublic = () => {
     useEffect(() => {
         if (isLogin) {
             if(user.role === "admin")
-                navigate('/admin')
+                navigate('/admin/estado-guirnaldas')
             else
                 navigate('/app')    
         }   
