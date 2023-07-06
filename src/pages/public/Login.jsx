@@ -3,16 +3,28 @@ import imgLogin from '../../assets/imgs/imgLogin.jpg'
 import imgLogo from '../../assets/imgs/logo.png'
 import '../../styles/Login.scss'
 import api from '../../api/api'
+import { Navigate, useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { AppContext } from '../../contexts/AppContext'
 export const Login = () => {
     const { register, handleSubmit } = useForm()
+    const {setIsLogin,setUser} = useContext(AppContext)
+    const navigate = useNavigate()
     const onSubmitFormLogin = async(data) => {
         try {
             const res= await api.post('/users/login',data)
-            console.log(res)
+            
             if(res.data.status){
-                console.log(res.data.token)
+
                 sessionStorage.setItem('token',res.data.token)
-                window.location.reload()
+                setUser(res.data.user)
+                setIsLogin(true)
+                if(res.data.user.role === 'admin'){
+                    
+                    navigate('/admin')
+                }else{
+                    navigate('/app')
+                }
             }
         } catch (error) {
             

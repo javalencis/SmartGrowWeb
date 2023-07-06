@@ -27,8 +27,6 @@ export const AppProvider = ({ children }) => {
         if(res.data.status){
             setUser(res.data.user)
             setIsLogin(true)
-        }else{
-            setIsLogin(false)
         }
 
     }

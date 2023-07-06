@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AppContext } from '../../contexts/AppContext'
 
 export const Admin = () => {
+    const {user} = useContext(AppContext)
   return (
-    <div>Admin</div>
+    <div>Hola {user.name}</div>
   )
 }

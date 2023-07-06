@@ -1,16 +1,24 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { AppContext } from "../contexts/AppContext"
-import { Navigate, Outlet } from "react-router-dom"
+import { Navigate, Outlet, useNavigate } from "react-router-dom"
 
 export const LayoutPublic = () => {
-    const {isLogin} = useContext(AppContext)
-  return (
-    <>
-        {
-            !isLogin ?
-            <Outlet/>:
-            <Navigate to="/app"/>
-        }
-    </>
-  )
+    const {user, isLogin } = useContext(AppContext)
+    const navigate = useNavigate()
+    useEffect(() => {
+        if (isLogin) {
+            if(user.role === "admin")
+                navigate('/admin')
+            else
+                navigate('/app')    
+        }   
+    },[isLogin])
+
+    return (
+        <>
+
+            <Outlet />:
+
+        </>
+    )
 }
