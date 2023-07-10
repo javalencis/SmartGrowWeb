@@ -1,17 +1,26 @@
 import { useContext, useEffect, useState } from "react"
 import { AppContext } from "../contexts/AppContext"
+import { LayoutModal } from '../containers/LayoutModal'
+import { ModalAlert } from './ModalAlert'
 import '../styles/Alerts.scss'
-import api from "../api/api"
 import { Alert } from "./Alert"
+
 export const Alerts = ({ view }) => {
     const { user } = useContext(AppContext)
+    const [modalAlert, setModalAlert] = useState(false)
+    const [alertClick, setAlertClick] =useState({})
     const [alerts, setAlerts] = useState([])
-    const findAlerts = async () => {
-        const res = await api.get('/alerts')
-        setAlerts(res.data)
-    }
+
+
     useEffect(() => {
-        findAlerts()
+        const eventSource = new EventSource('http://localhost:3001/api/alerts')
+        eventSource.onmessage = (event) => {
+            const data = JSON.parse(event.data)
+            setAlerts(data.reverse())
+        }
+        return () => {
+            eventSource.close()
+        }
     }, [])
 
     return (
@@ -36,11 +45,22 @@ export const Alerts = ({ view }) => {
             <div className="AlertsList">
                 {
                     alerts.map((alert) => (
-                        <Alert key={alert._id} data={alert} />
+                        <Alert 
+                            key={alert._id} 
+                            data={alert} 
+                            setModalAlert={setModalAlert} 
+                            setAlertClick={setAlertClick}
+                            />
                     ))
                 }
             </div>
-
+            {
+                    modalAlert && (
+                        <LayoutModal setModalAlert={setModalAlert}>
+                            <ModalAlert alert={alertClick} setModalAlert={setModalAlert}/>
+                        </LayoutModal>
+                    )
+                }
 
         </section>
     )

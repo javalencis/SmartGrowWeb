@@ -1,8 +1,42 @@
-.Blocks{
+.Blocks {
     flex-grow: 1;
     background-color: #ffffff;
     box-shadow: 0 5px 10px 0 rgba($color: #000000, $alpha: 0.3);
     border-radius: 15px;
-    
-   
+    padding: 20px;
+
+    .BlocksList {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-top: 30px;
+        align-items: center;
+        .Block-num{
+            justify-self: right;
+            margin-right: 20px;
+            font-size: 20px;
+        }
+        .BlockState {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            justify-self: left;
+            cursor: pointer;
+        }
+
+        .BlockState.on {
+            background-color: #04C900;
+        }
+
+        .BlockState.warning {
+            background-color: #FF2929;
+        }
+
+        .BlockState.off {
+            border: 1px solid #000000;
+        }
+
+    }
+
 }
