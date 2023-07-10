@@ -1,0 +1,34 @@
+.Alert{
+    
+    &.corrected{
+        background-color: #C4FF96;
+    }
+    &.not_corrected{
+        background-color: #FF9696;
+
+    }
+
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 10px 0 rgba($color: #000000, $alpha: 0.3);
+    max-width: 460px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    cursor: pointer;
+    .AlertLeft{
+        border-right: 1px solid #000000;
+        padding-right: 20px;
+        flex-grow: 1;
+
+        .AlertLeft-description{
+            margin-bottom: 15px;
+        }
+    }
+
+    .AlertRight{
+        flex-grow: 1;
+        padding-left: 20px;
+    }
+}

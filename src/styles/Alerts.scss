@@ -1,0 +1,18 @@
+.Alerts{
+    flex-grow: 1;
+
+    .AlertsButtons{
+        margin-bottom: 20px;
+        button{
+            border: none;
+            background-color: #060606;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            margin-right: 30px;
+            cursor: pointer;
+        }
+        
+    }
+    
+}
