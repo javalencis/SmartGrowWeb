@@ -1,0 +1,14 @@
+.TableAlerts{
+    max-width: 900px;
+    width: 100%;
+    border-collapse: collapse;
+    .TableHeaders{
+        background-color:var(--color-primary-black);
+        color: #ffffff;
+        .TableHeader{
+            padding: 8px 0;
+        }
+    }
+
+    
+}

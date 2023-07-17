@@ -4,6 +4,7 @@ import { LayoutModal } from '../containers/LayoutModal'
 import { ModalAlert } from './ModalAlert'
 import '../styles/Alerts.scss'
 import { Alert } from "./Alert"
+import { AlertsHistory } from "./AlertsHistory"
 
 export const Alerts = ({ view }) => {
     const { user } = useContext(AppContext)
@@ -55,9 +56,7 @@ export const Alerts = ({ view }) => {
                             ))
                         }
                     </div>:
-                    <div>
-                        historico
-                    </div>
+                    <AlertsHistory alerts={alerts}/>
                 }
 
             {
