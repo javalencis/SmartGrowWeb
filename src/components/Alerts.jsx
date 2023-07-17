@@ -8,9 +8,9 @@ import { Alert } from "./Alert"
 export const Alerts = ({ view }) => {
     const { user } = useContext(AppContext)
     const [modalAlert, setModalAlert] = useState(false)
-    const [alertClick, setAlertClick] =useState({})
+    const [alertClick, setAlertClick] = useState({})
     const [alerts, setAlerts] = useState([])
-
+    const [btnSelected, setBtnSelected] = useState('tr')
 
     useEffect(() => {
         const eventSource = new EventSource('http://localhost:3001/api/alerts')
@@ -26,7 +26,7 @@ export const Alerts = ({ view }) => {
     return (
         <section className="Alerts">
             <div className="AlertsButtons">
-                <button>
+                <button onClick={() => setBtnSelected('tr')}>
                     Tiempo Real
                 </button>
                 {
@@ -34,33 +34,39 @@ export const Alerts = ({ view }) => {
 
                         user.role === "admin" && (
 
-                            <button>
+                            <button onClick={() => setBtnSelected('hi')}>
                                 Historico
                             </button>
                         )
                     )
                 }
             </div>
-
-            <div className="AlertsList">
-                {
-                    alerts.map((alert) => (
-                        <Alert 
-                            key={alert._id} 
-                            data={alert} 
-                            setModalAlert={setModalAlert} 
-                            setAlertClick={setAlertClick}
-                            />
-                    ))
-                }
-            </div>
             {
-                    modalAlert && (
-                        <LayoutModal setModalAlert={setModalAlert}>
-                            <ModalAlert alert={alertClick} setModalAlert={setModalAlert}/>
-                        </LayoutModal>
-                    )
+                btnSelected === 'tr' ?
+                    <div className="AlertsList">
+                        {
+                            alerts.map((alert) => (
+                                <Alert
+                                    key={alert._id}
+                                    data={alert}
+                                    setModalAlert={setModalAlert}
+                                    setAlertClick={setAlertClick}
+                                />
+                            ))
+                        }
+                    </div>:
+                    <div>
+                        historico
+                    </div>
                 }
+
+            {
+                modalAlert && (
+                    <LayoutModal setModalAlert={setModalAlert}>
+                        <ModalAlert alert={alertClick} setModalAlert={setModalAlert} />
+                    </LayoutModal>
+                )
+            }
 
         </section>
     )
