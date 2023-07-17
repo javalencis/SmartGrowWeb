@@ -9,7 +9,8 @@ export const Blocks = () => {
     const eventSource = new EventSource('http://localhost:3001/api/garlands')
 
     eventSource.onmessage = (event) =>{
-      setBlocks(JSON.parse(event.data))
+
+      setBlocks(getStateBlocks(JSON.parse(event.data)))
     }
 
     return ()=>{

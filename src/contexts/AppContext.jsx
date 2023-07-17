@@ -6,25 +6,27 @@ export const AppContext = createContext()
 export const AppProvider = ({ children }) => {
     const [user, setUser] = useState({})
     const [isLogin, setIsLogin] = useState(false)
+    const [openMenu, setOpenMenu] = useState(false)
 
 
-    useEffect(()=>{
+
+    useEffect(() => {
         validateUser()
-    },[])
+    }, [])
 
-    const validateUser = async()=>{
+    const validateUser = async () => {
         const token = sessionStorage.getItem('token')
-        if(!token){
+        if (!token) {
             return false
         }
 
-        const res = await api.get('/users/profile',{
-            headers:{
-                Authorization:token
+        const res = await api.get('/users/profile', {
+            headers: {
+                Authorization: token
             }
         })
-       
-        if(res.data.status){
+
+        if (res.data.status) {
             setUser(res.data.user)
             setIsLogin(true)
         }
@@ -37,7 +39,9 @@ export const AppProvider = ({ children }) => {
                 user,
                 setUser,
                 isLogin,
-                setIsLogin
+                setIsLogin,
+                openMenu,
+                setOpenMenu
             }}
         >
             {children}
@@ -46,4 +50,4 @@ export const AppProvider = ({ children }) => {
 }
 
 
-export const useAppContext =() => (useContext(AppContext))
+export const useAppContext = () => (useContext(AppContext))

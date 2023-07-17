@@ -9,7 +9,7 @@ import { User } from "../pages/private/User"
 
 function App() {
   const { isLogin } = useContext(AppContext)
-  console.log(isLogin)
+ 
   return (
     <BrowserRouter>
       <Routes>

@@ -1,7 +1,12 @@
+@import './media-queries';
 .GarlandState{
     width: 100%;
-   
     display: flex;
     justify-content: space-around;
     gap: 20px;
+    @include mobile{
+        & .Alerts{
+            display: none;
+        }
+    }
 }

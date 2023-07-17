@@ -1,12 +1,22 @@
+@import './media-queries';
 .PagesContainer{
+  
     display: flex;
     min-height: 100vh;
     background-color: #f5f5f5;
-    
+    flex-direction: column;
 
     .PageSectionContainer{
-        width: 100%;
+
         margin-left: 300px;
-        padding: 30px;
+        padding: 10px;
+    }
+
+    @include tablet{
+        .PageSectionContainer{
+        
+    
+            margin-left: 0;
+        }
     }
 }

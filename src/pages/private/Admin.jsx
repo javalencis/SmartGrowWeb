@@ -14,7 +14,7 @@ export const Admin = () => {
     if (!isLogin) {
       navigate('/')
     }
-
+   
   }, [isLogin])
 
 

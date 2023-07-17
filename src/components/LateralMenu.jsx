@@ -1,5 +1,4 @@
-import { useContext } from "react"
-import { AppContext, useAppContext } from "../contexts/AppContext"
+import { useAppContext } from "../contexts/AppContext"
 import { Logout } from "./Logout"
 import { NavItem } from "./NavItem"
 import {menuRole } from "../libs/menus.js"
@@ -7,10 +6,17 @@ import '../styles/LateralMenu.scss'
 
 
 export const LateralMenu = () => {
-  const { user } = useAppContext()
+  const { user,openMenu,setOpenMenu } = useAppContext()
+
+  const handleOnClickExitMenu = () =>{
+    setOpenMenu(e=>!e)
+  }
 
   return (
-    <div className="LateralMenu">
+    <div className={openMenu ? "LateralMenu open" :"LateralMenu"}>
+      <button className="LateralMenuExit" onClick={handleOnClickExitMenu}>
+        X
+      </button>
       <h1>SmartGrow</h1>
       <nav>
         {
