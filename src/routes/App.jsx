@@ -18,11 +18,8 @@ function App() {
           <Route path="/login" element={<Login />} />
         </Route>
         <Route path="/admin/*" element={<Admin />} />
+        <Route path="/app/*" element={<User />} />
 
-
-        <Route path='/app' element={<LayoutPrivate />}>
-          <Route index element={<User />} />
-        </Route>
         <Route path="*" element={<p>404</p>} />
       </Routes>
 

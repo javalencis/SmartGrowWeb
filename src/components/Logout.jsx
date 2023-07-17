@@ -7,7 +7,7 @@ export const Logout = () => {
     }
 
     return (
-        <button onClick={handleOnClickExit}>
+        <button className="LateralMenuButtonExit" onClick={handleOnClickExit}>
             Cerrar Sesión
         </button>
     )

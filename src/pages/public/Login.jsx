@@ -3,33 +3,39 @@ import imgLogin from '../../assets/imgs/imgLogin.jpg'
 import imgLogo from '../../assets/imgs/logo.png'
 import '../../styles/Login.scss'
 import api from '../../api/api'
-import { Navigate, useNavigate } from 'react-router-dom'
-import { useContext } from 'react'
+import {useNavigate } from 'react-router-dom'
+import { useContext, useState } from 'react'
 import { AppContext } from '../../contexts/AppContext'
 export const Login = () => {
-    const { register, handleSubmit } = useForm()
-    const {setIsLogin,setUser} = useContext(AppContext)
-    const navigate = useNavigate()
-    const onSubmitFormLogin = async(data) => {
-        try {
-            const res= await api.post('/users/login',data)
-            
-            if(res.data.status){
 
-                sessionStorage.setItem('token',res.data.token)
+    const [error, setError] = useState(false)
+
+
+    const { register, handleSubmit } = useForm()
+    const { setIsLogin, setUser } = useContext(AppContext)
+    const navigate = useNavigate()
+    const onSubmitFormLogin = async (data) => {
+        try {
+            const res = await api.post('/users/login', data)
+
+            if (res.data.status) {
+
+                sessionStorage.setItem('token', res.data.token)
                 setUser(res.data.user)
                 setIsLogin(true)
-                if(res.data.user.role === 'admin'){
-                    
+                if (res.data.user.role === 'admin') {
+
                     navigate('/admin/estado-guirnaldas')
-                }else{
-                    navigate('/app')
+                } else {
+                    navigate('/app/estado-guirnaldas')
                 }
+            } else {
+                throw new Error('Usuario o contraseña incorrecto')
             }
         } catch (error) {
-            
+            setError(true)
         }
- 
+
     }
     return (
         <section className="Login">
@@ -37,8 +43,14 @@ export const Login = () => {
                 <div className='Login-img'>
                     <img src={imgLogin} alt="" />
                 </div>
+
                 <form onSubmit={handleSubmit(onSubmitFormLogin)}>
-                    <img src={imgLogo} alt=""/>
+                    <img src={imgLogo} alt="" />
+                    {
+                        error && (
+                            <p className='LoginError'>Usuario o contraseña incorrectas</p>
+                        )
+                    }
                     <input
                         type="text"
                         placeholder="Usuario"

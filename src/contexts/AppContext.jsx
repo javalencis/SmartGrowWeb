@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 import api from "../api/api"
 
 export const AppContext = createContext()
@@ -44,3 +44,6 @@ export const AppProvider = ({ children }) => {
         </AppContext.Provider>
     )
 }
+
+
+export const useAppContext =() => (useContext(AppContext))
