@@ -1,0 +1,39 @@
+.FilterAlerts{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    .FilterAlertsDates,
+    .FilterAlertsNumbers{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 20px;
+
+        label{
+            margin-right: 10px;
+
+        }
+
+        input{
+            padding: 5px;
+            font-size: 16px;
+        }
+    }
+    .FilterAlertsNumbers{
+        input{
+            width: 80px;
+        }
+
+        button{
+            background-color: var(--color-primary-black);
+            color: #ffffff;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+
+
+        }
+    }
+}

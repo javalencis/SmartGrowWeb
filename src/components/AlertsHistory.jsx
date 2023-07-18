@@ -1,13 +1,20 @@
+import { useEffect, useState } from "react"
+import { FilterAlerts } from "./FilterAlerts"
 import { Table } from "./Table"
 
+import '../styles/AlertsHistory.scss'
+import { arrayFilter } from "../libs/functions"
+export const AlertsHistory = ({ alerts }) => {
+  const [alertsAux, setAlertsAux] = useState([])
 
-export const AlertsHistory = ({alerts}) => {
+  useEffect(() => {
+    setAlertsAux(alerts)
+  }, [])
+ 
   return (
-    <div>
-        <div>
-            Filtros
-        </div>
-        <Table alerts={alerts}/>
+    <div className="AlertsHistory">
+      <FilterAlerts alerts={alerts} setAlertsAux={setAlertsAux} />
+      <Table alerts={alertsAux} />
     </div>
   )
 }
