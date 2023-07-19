@@ -5,6 +5,12 @@ export const AlertRowExpended = ({ alert }) => {
     return (
         <tr className="AlertRowExpended">
             <td colSpan='5'>
+                <p className="AlertRowExpended_mb">
+                    <span>Bloque:</span> {alert.bloque}
+                </p>
+                <p className="AlertRowExpended_mb">
+                    <span>Guirnalda:</span> {alert.guirnalda}
+                </p>
                 <p>
                     <span>Hora:</span>  {formatHour(alert.createdAt)}
                 </p>

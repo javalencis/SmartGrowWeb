@@ -1,14 +1,26 @@
-.TableAlerts{
+@import './media-queries';
+
+.TableAlerts {
     max-width: 900px;
     width: 100%;
     border-collapse: collapse;
-    .TableHeaders{
-        background-color:var(--color-primary-black);
+
+    .TableHeaders {
+        background-color: var(--color-primary-black);
         color: #ffffff;
-        .TableHeader{
+
+        .TableHeader {
             padding: 8px 0;
+        }
+
+        @include mobile {
+
+            .TableHeader:nth-child(3),
+            .TableHeader:nth-child(4) {
+                display: none;
+            }
         }
     }
 
-    
+
 }
