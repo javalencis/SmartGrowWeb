@@ -5,6 +5,7 @@ import { GarlandState } from './GarlandState'
 import { Alerts } from '../../components/Alerts'
 import { LayoutPages } from '../../containers/LayoutPages'
 import { Control } from '../../components/Control'
+import { UserManagement } from '../../components/UserManagement'
 
 
 export const Admin = () => {
@@ -27,6 +28,7 @@ export const Admin = () => {
         <Route path='/estado-guirnaldas' element={<GarlandState />} />
         <Route path='/alertas' element={<Alerts view={"alerts"} />} />
         <Route path='/control' element={ <Control/>} />
+        <Route path='/usuarios' element={ <UserManagement/>} />
       </Routes>
     </LayoutPages>
   )

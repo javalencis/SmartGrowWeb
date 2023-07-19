@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react"
-import { AppContext } from "../contexts/AppContext"
+import { useEffect, useState } from "react"
+import { useAppContext } from "../contexts/AppContext"
 import { LayoutModal } from '../containers/LayoutModal'
 import { ModalAlert } from './ModalAlert'
 import '../styles/Alerts.scss'
@@ -7,7 +7,7 @@ import { Alert } from "./Alert"
 import { AlertsHistory } from "./AlertsHistory"
 
 export const Alerts = ({ view }) => {
-    const { user } = useContext(AppContext)
+    const { user } = useAppContext()
     const [modalAlert, setModalAlert] = useState(false)
     const [alertClick, setAlertClick] = useState({})
     const [alerts, setAlerts] = useState([])
