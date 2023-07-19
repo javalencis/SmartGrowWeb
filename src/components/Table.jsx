@@ -1,11 +1,10 @@
 
-import { AlertRow } from "./AlertRow"
-import '../styles/Table.scss'
-const headers = ['Fecha', 'Descripción', 'Bloque', 'Guirnalda', 'Estado']
 
-export const Table = ({alerts}) => {
+
+
+export const Table = ({children,headers,name}) => {
     return (
-        <table className="TableAlerts">
+        <table className={name}>
             <thead>
                 <tr className="TableHeaders">
                     {headers.map((header, index) => (
@@ -15,9 +14,7 @@ export const Table = ({alerts}) => {
             </thead>
             <tbody>
                 {
-                    alerts.map((alert,index)=>(
-                        <AlertRow key={index} alert={alert}/>
-                    ))
+                   children
                 }
             </tbody>
         </table>
