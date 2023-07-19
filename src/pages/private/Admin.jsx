@@ -4,6 +4,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 import { GarlandState } from './GarlandState'
 import { Alerts } from '../../components/Alerts'
 import { LayoutPages } from '../../containers/LayoutPages'
+import { Control } from '../../components/Control'
 
 
 export const Admin = () => {
@@ -25,6 +26,7 @@ export const Admin = () => {
         <Route index element={<GarlandState />} />
         <Route path='/estado-guirnaldas' element={<GarlandState />} />
         <Route path='/alertas' element={<Alerts view={"alerts"} />} />
+        <Route path='/control' element={ <Control/>} />
       </Routes>
     </LayoutPages>
   )
