@@ -1,7 +1,3 @@
-
-
-
-
 export const Table = ({children,headers,name}) => {
     return (
         <table className={name}>

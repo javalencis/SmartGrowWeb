@@ -4,7 +4,8 @@ import { Table } from "./Table"
 import api from "../api/api"
 import { Row } from "./Row"
 import { UserRow } from "./UserRow"
-
+import '../styles/TableUsers.scss'
+import { UserRowExpended } from "./UserRowExpended"
 export const UserManagement = () => {
     const [users, setUsers] = useState([])
     const getUsers = async() =>{
@@ -31,6 +32,7 @@ export const UserManagement = () => {
             <Table
                 headers={headersUsers}
                 name="TableUsers"
+                
             >
                 {
                     users.map((user)=>(
@@ -38,7 +40,10 @@ export const UserManagement = () => {
                             key={user._id}
                             data={user}
                             RowType={UserRow}
-                            />
+                            expand
+                            >
+                                <UserRowExpended data={user}/>
+                            </Row>
                     ))
                 }
             </Table>

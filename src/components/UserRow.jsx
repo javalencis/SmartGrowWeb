@@ -1,4 +1,4 @@
-
+import '../styles/UserRow.scss'
 export const UserRow = ({ handleClickExpand, data }) => {
     return (
         <tr onClick={handleClickExpand} className="UserRow">
