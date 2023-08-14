@@ -1,0 +1,40 @@
+.ModalAddUser {
+    background-color: #ffffff;
+    padding: 20px ;
+    h3{
+        margin-bottom: 20px;
+    }
+    .MsnSuccess{
+        margin-bottom: 10px;
+        color: green;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        input,
+        select {
+            padding: 15px 10px;
+            font-size: 16px;
+        }
+        .SelectRole{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        button{
+            width: 50%;
+            margin: 0 auto;
+            margin-top: 20px;
+            border: none;
+            background-color: var(--color-primary-black);
+            padding: 15px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #ffffff;
+
+        }
+    }
+}

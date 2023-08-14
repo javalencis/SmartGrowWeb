@@ -5,6 +5,7 @@
     width: 100%;
     border-collapse: collapse;
 
+
     .TableHeaders {
         background-color: var(--color-primary-black);
         color: #ffffff;
@@ -15,7 +16,7 @@
 
         @include mobile {
 
-            .TableHeader:nth-child(3){
+            .TableHeader:nth-child(3) {
                 display: none;
             }
         }
