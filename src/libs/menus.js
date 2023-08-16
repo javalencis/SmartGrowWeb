@@ -7,6 +7,7 @@ import iGreenHouse from '../assets/icons/invernadero.png'
 
 const adminMenu = [
     {to:'estado-guirnaldas',title:'Estado Guirnalda',icon:iGarland},
+    {to:'estado-bloques',title:'Estado Bloques',icon:iGreenHouse},
     {to:'grafica-guirnalda',title:'Grafica Guirnalda',icon:iGraphic},
     {to:'alertas',title:'Alertas',icon:iAlerts},
     {to:'control',title:'Control',icon:iControl},

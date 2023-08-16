@@ -6,6 +6,7 @@ import { Alerts } from '../../components/Alerts'
 import { LayoutPages } from '../../containers/LayoutPages'
 import { Control } from '../../components/Control'
 import { UserManagement } from '../../components/UserManagement'
+import { DataBlocks } from '../../components/DataBlocks'
 
 
 export const Admin = () => {
@@ -29,6 +30,7 @@ export const Admin = () => {
         <Route path='/alertas' element={<Alerts view={"alerts"} />} />
         <Route path='/control' element={ <Control/>} />
         <Route path='/usuarios' element={ <UserManagement/>} />
+        <Route path='/datos-bloque' element={ <DataBlocks/>} />
       </Routes>
     </LayoutPages>
   )
