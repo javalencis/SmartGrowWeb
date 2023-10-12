@@ -10,8 +10,8 @@ export const Control = () => {
     const handleSubmitFormControl = async (data) => {
         const token = sessionStorage.getItem('token')
         const bControl = {
-            hora_inicio: data.start_time,
-            hora_final: data.end_time,
+            hora_inicio: data.start_time+':00',
+            hora_final: data.end_time+':00',
             tiempo_encendido: Number(data.on_time),
             tiempo_apagado: Number(data.off_time),
             bloque: parseInt(data.block)
